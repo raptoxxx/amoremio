@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>💚</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      background-color: #000;
+      color: #00ff7f;
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      text-align: center;
+    }
+
+    .text {
+      font-size: 30px;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+      padding: 20px;
+    }
+
+    .big {
+      font-size: 42px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="text" id="text"></div>
+
+  <script>
+    const texts = [
+      { text: "hey ciao amoremio💚", big: false },
+      { text: "vuoi sapere una cosa?", big: false },
+      { text: "SEI BELLISSIMA!!!", big: true },
+      { text: "si proprio tu", big: false },
+      { text: "tiamo tantissimo", big: true }
+    ];
+
+    let index = 0;
+    const textElement = document.getElementById("text");
+
+    function changeText() {
+      textElement.style.opacity = 0;
+
+      setTimeout(() => {
+        textElement.textContent = texts[index].text;
+        textElement.classList.toggle("big", texts[index].big);
+        textElement.style.opacity = 1;
+        index++;
+      }, 1000);
+    }
+
+    changeText();
+    setInterval(changeText, 3000);
+  </script>
+
+</body>
+</html>
